@@ -16,7 +16,8 @@ xui.extend({
             doubleTapMaxDelay: 1000,
             longTapCapture: false,
             longTapDelay:1000,
-            simpleTapCapture: false
+            simpleTapCapture: false,
+            simpleTapMaxDistance: 10
         };
 
         for ( var key in defaults ){
@@ -59,8 +60,8 @@ xui.extend({
                 startTime = (new Date).getTime();
                 originalCoord.x = e.targetTouches[0].clientX;
                 originalCoord.y = e.targetTouches[0].clientY;
-                finalCoord.x = 0;
-                finalCoord.y = 0;
+                finalCoord.x = originalCoord.x;
+                finalCoord.y = originalCoord.y;
 
             }
 
@@ -183,7 +184,7 @@ xui.extend({
                     }
                 }
 
-                if (options.simpleTapCapture)
+                if (options.simpleTapCapture && (coords.distance < options.simpleTapMaxDistance))
                     clickTap(e)
 
 
