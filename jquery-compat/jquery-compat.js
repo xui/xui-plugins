@@ -12,16 +12,16 @@ xui.extend({
 	 */
 	end: function () {	
 		return this.set(this.cache || []);	 	
-	}
+	},
         // returns next element in DOM
-	'next': function() {
+	next: function() {
 		var n = this[0];
 		do{n = n.nextSibling;}
 		while (n && n.nodeType != 1);
 		return x$(n);
 	},
         // checks if element IS input x$(this).is("div") -> returns a DIV if this is a div or false otherwise
-	'is': function(sr) {
+	is: function(sr) {
 		sr = sr.toUpperCase();
 		var n = this[0];
 		if(sr == n.nodeName){
