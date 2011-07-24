@@ -13,6 +13,18 @@ xui.extend({
 	end: function () {	
 		return this.set(this.cache || []);	 	
 	},
+  /**
+   * Sets the `display` CSS property to `block`.
+   */
+  show:function() {
+    return this.setStyle('display','block');
+  },
+  /**
+   * Sets the `display` CSS property to `none`.
+   */
+  hide:function() {
+    return this.setStyle('display','none');
+  }
         // returns next element in DOM
 	next: function() {
 		var n = this[0];
