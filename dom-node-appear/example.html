@@ -1,70 +1,70 @@
 <!doctype html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Dom Node Appear - XUIJS</title>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/xuijs/2.3.2/xui.min.js"></script>
-	<script src="dom-node-appear.js"></script>
+  <head>
+    <meta charset="UTF-8">
+    <title>Dom Node Appear - XUIJS</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/xuijs/2.3.2/xui.min.js"></script>
+    <script src="dom-node-appear.js"></script>
 
-	<style>
-		#container {
-			margin: 10px auto;
-			width: 90%;
-		}
-		.node {
-			-webkit-transition: color 0.5s ease-out;
-			-moz-transition: color 0.5s ease-out;
-			-o-transition: color 0.5s ease-out;
-			transition: color 0.5s ease-out;
-			color: #fff;
-		}
-		.new-element {
-			color: #DF0000;
-		}
-		p {
-			border: 3px solid #D5CFCF;
-			padding: 10px;
-			width: 50%;
-			color: #555555;
-		}
-		button {
-			border: none;
-			padding: 20px;
-			background-color: #000;
-			color: #fff;
-		}
-	</style>
-</head>
-<body>
-	<div id="container">
-		<button id="add-node">Add new element</button>
-		<p id="events-text">No new Elements</p>
-		<div id="nodes"></div>
-	</div>
+    <style>
+      #container {
+        margin: 10px auto;
+        width: 90%;
+      }
+      .node {
+        -webkit-transition: color 0.5s ease-out;
+        -moz-transition: color 0.5s ease-out;
+        -o-transition: color 0.5s ease-out;
+        transition: color 0.5s ease-out;
+        color: #fff;
+      }
+      .new-element {
+        color: #DF0000;
+      }
+      p {
+        border: 3px solid #D5CFCF;
+        padding: 10px;
+        width: 50%;
+        color: #555555;
+      }
+      button {
+        border: none;
+        padding: 20px;
+        background-color: #000;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <button id="add-node">Add new element</button>
+      <p id="events-text">No new Elements</p>
+      <div id="nodes"></div>
+    </div>
 
-	<script>
-		var container = x$('#container'),
-			nodes = x$('#nodes'),
-			addNode = x$('#add-node'),
-			eventsText = x$('#events-text'),
-			countNodes = 0;
+    <script>
+      var container = x$('#container'),
+          nodes = x$('#nodes'),
+          addNode = x$('#add-node'),
+          eventsText = x$('#events-text'),
+          countNodes = 0;
 
-		setInterval(function () {
-			addNode.fire('click');
-		}, 2000);
+      setInterval(function () {
+        addNode.fire('click');
+      }, 2000);
 
-		addNode.on('click', function () {
-			nodes.bottom('<div class="node">[NEW NODE]</div>');
-			countNodes++;
-		});
+      addNode.on('click', function () {
+        nodes.bottom('<div class="node">[NEW NODE]</div>');
+        countNodes++;
+      });
 
-		x$('.node').appears(function (node) {
-			var prev = x$(node[0].previousSibling);
+      x$('.node').appears(function (node) {
+        var prev = x$(node[0].previousSibling);
 
-			node.addClass('new-element node-index-' + countNodes);
-			prev.remove();
-			eventsText.html('New node number ' + countNodes + '!');
-		});
-	</script>
-</body>
+        node.addClass('new-element node-index-' + countNodes);
+        prev.remove();
+        eventsText.html('New node number ' + countNodes + '!');
+      });
+    </script>
+  </body>
 </html>
