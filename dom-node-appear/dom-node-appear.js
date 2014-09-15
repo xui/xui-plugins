@@ -67,15 +67,11 @@ xui.extend({
 //It just exists to get the selector
 //It saves the reference of the xui and replaces the main "find" in order to save the selector
 (function (window) {
-  var _xui = xui;
+  var _find = xui.fn.find;
 
-  window.x$ = window.xui = xui = function(q, context) { 
-    var Xui = new _xui.fn.find(q, context);
+  xui.fn.find = function (q, context) {
+    var Xui = new _find(q, context);
     Xui.selector = q;
     return Xui;
   };
-
-  xui.fn = xui.prototype = _xui.prototype;
-  xui.fn.find.prototype = _xui.fn;
-  xui.extend = _xui.fn.extend;
 }(window));
