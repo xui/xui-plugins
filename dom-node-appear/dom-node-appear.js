@@ -20,7 +20,7 @@ xui.extend({
   *    });
   * 
   */
-  DOMNodeAppear: function(callback) {
+  DOMNodeAppear: function(callback) {    
     var self = this,
         head = x$('head'),
 
@@ -69,13 +69,10 @@ xui.extend({
 (function (window) {
   var _xui = xui;
 
-  window.x$ = window.xui = xui = function(q, context) { 
-    var Xui = new _xui.fn.find(q, context);
-    Xui.selector = q;
-    return Xui;
-  };
+  window.x$ = window.xui = xui = function(q, context) {
+    var _Xui = _xui.apply(this, arguments);
 
-  xui.fn = xui.prototype = _xui.prototype;
-  xui.fn.find.prototype = _xui.fn;
-  xui.extend = _xui.fn.extend;
+    _Xui.selector = q;
+    return _Xui;
+  };
 }(window));
