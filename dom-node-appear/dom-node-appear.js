@@ -7,20 +7,20 @@ xui.extend({
   * @return self
   * @example
   * 
-  * ### appears 
+  * ### DOMNodeAppear 
   *  
   * syntax:
   *
-  *    appears(callback);
+  *    DOMNodeAppear(callback);
   * 
   * example: 
   * 
-  *    x$('#node').appears(function () {
+  *    x$('#node').DOMNodeAppear(function () {
   *      //do something
   *    });
   * 
   */
-  appears: function(callback) {
+  DOMNodeAppear: function(callback) {
     var self = this,
         head = x$('head'),
 
