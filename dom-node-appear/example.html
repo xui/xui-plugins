@@ -58,7 +58,7 @@
         countNodes++;
       });
 
-      x$('.node').appears(function (node) {
+      x$('.node').DOMNodeAppear(function (node) {
         var prev = x$(node[0].previousSibling);
 
         node.addClass('new-element node-index-' + countNodes);
